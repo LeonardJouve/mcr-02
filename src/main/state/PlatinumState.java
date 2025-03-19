@@ -3,17 +3,40 @@ package main.state;
 import main.Account;
 
 public class PlatinumState extends State {
-    protected PlatinumState(Account account) {
+    private static final double MILES_COEFFICIENT = 1;
+    private static final int PLATINUM_CREDIT_THRESHOLD = 10000;
+
+    public PlatinumState(Account account) {
         super(account);
     }
 
     @Override
-    public void deposit(int amount) {
-
+    public double getMilesCoefficient() {
+        return MILES_COEFFICIENT;
     }
 
     @Override
-    public void withdraw(int amount) {
+    public boolean checkThreshold(double amount) {
+        return amount >= PLATINUM_CREDIT_THRESHOLD;
+    }
 
+    @Override
+    public boolean depositCash(int amount) {
+        return true;
+    }
+
+    @Override
+    public boolean depositMiles(int amount) {
+        return true;
+    }
+
+    @Override
+    public boolean withdrawCash(int amount) {
+        return true;
+    }
+
+    @Override
+    public boolean withdrawMiles(int amount) {
+        return true;
     }
 }

@@ -2,7 +2,7 @@ package main.state;
 import main.Account;
 
 public abstract class State {
-    private final Account account;
+    protected final Account account;
 
     protected State(Account account) {
         this.account = account;
@@ -31,4 +31,6 @@ public abstract class State {
     }
 
     public abstract double getMilesCoefficient();
+
+    public abstract boolean checkThreshold(double amount);
 }
