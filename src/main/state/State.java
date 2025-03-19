@@ -8,7 +8,27 @@ public abstract class State {
         this.account = account;
     }
 
-    public abstract void deposit(int amount);
+    protected void setState(State state) {
+        account.setState(state);
+    }
 
-    public abstract void withdraw(int amount);
+    public boolean depositCash(int amount) {
+        account.depositCash(amount);
+        return true;
+    }
+
+    public boolean depositMiles(int amount) {
+        account.depositMiles(amount);
+        return true;
+    }
+
+    public boolean withdrawCash(int amount) {
+        return true;
+    }
+
+    public boolean withdrawMiles(int amount) {
+        return true;
+    }
+
+    public abstract double getMilesCoefficient();
 }
