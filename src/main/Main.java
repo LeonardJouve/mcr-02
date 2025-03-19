@@ -1,3 +1,5 @@
+package main;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,8 +17,14 @@ public class Main {
 
         JPanel clientPanel = new JPanel();
         clientPanel.setLayout(new GridLayout(1, 3));
-        clientPanel.add(new JLabel("Client"));
-        clientPanel.add(new JButton("Details"));
+        clientPanel.add(new JLabel("main.Client"));
+        JButton detailsButton = new JButton("Details");
+        detailsButton.addActionListener(e -> {
+            JFrame detailFrame = new JFrame();
+            detailFrame.setSize(WIDTH, HEIGHT);
+            detailFrame.setVisible(true);
+        });
+        clientPanel.add(detailsButton);
         frame.add(clientPanel);
 
         JPanel creditsPanel = new JPanel();
@@ -28,7 +36,7 @@ public class Main {
 
         JPanel flightPanel = new JPanel();
         flightPanel.setLayout(new GridLayout(1, 5));
-        flightPanel.add(new JLabel("Flight"));
+        flightPanel.add(new JLabel("main.Flight"));
         flightPanel.add(new JButton("Book (cash)"));
         flightPanel.add(new JButton("Book (miles)"));
         flightPanel.add(new JButton("Book (miles)"));
