@@ -15,4 +15,8 @@ public class Client {
         this.firstName = firstName;
         this.id = nextId++;
     }
+
+    public String toString() {
+        return lastName + " " + firstName;
+    }
 }
