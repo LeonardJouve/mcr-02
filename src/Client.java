@@ -1,6 +1,6 @@
 
 public class Client {
-    private String name;
+    private String lastName;
     private String firstName;
     private int id;
 
@@ -9,8 +9,8 @@ public class Client {
 
     private static int nextId = 1;
 
-    public Client(String name, String firstName) {
-        this.name = name;
+    public Client(String lastName, String firstName) {
+        this.lastName = lastName;
         this.firstName = firstName;
         this.id = nextId++;
     }
