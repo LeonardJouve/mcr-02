@@ -19,24 +19,4 @@ public class PlatinumState extends State {
     public boolean checkThreshold(double amount) {
         return amount >= PLATINUM_CREDIT_THRESHOLD;
     }
-
-    @Override
-    public boolean depositCash(int amount) {
-        return true;
-    }
-
-    @Override
-    public boolean depositMiles(int amount) {
-        return true;
-    }
-
-    @Override
-    public boolean withdrawCash(int amount) {
-        return true;
-    }
-
-    @Override
-    public boolean withdrawMiles(int amount) {
-        return true;
-    }
 }
