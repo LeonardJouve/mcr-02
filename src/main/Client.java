@@ -51,11 +51,13 @@ public class Client implements Subject {
 
     @Override
     public void attachObserver(Observer observer) {
+        System.out.println("Client attached");
         observers.add(observer);
     }
 
     @Override
     public void detachObserver(Observer observer) {
+        System.out.println("Client detached");
         observers.remove(observer);
     }
 

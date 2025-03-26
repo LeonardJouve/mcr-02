@@ -13,8 +13,6 @@ public class ClientDetailFrame extends JFrame implements Observer {
     private static final int WIDTH = 300;
     private static final int HEIGHT = 200;
 
-    private final Client client;
-
     private final JLabel lastNameLabel = new JLabel("Last name:");
     private final JLabel lastNameValue = new JLabel();
     private final JLabel firstNameLabel = new JLabel("First name:");
@@ -49,7 +47,6 @@ public class ClientDetailFrame extends JFrame implements Observer {
     }
 
     public ClientDetailFrame(Client client) {
-        this.client = client;
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Client Details");
         this.setVisible(true);
@@ -59,6 +56,7 @@ public class ClientDetailFrame extends JFrame implements Observer {
                 client.detachObserver(ClientDetailFrame.this);
             }
         });
+        client.attachObserver(this);
         this.addContent();
         this.update(client);
     }
