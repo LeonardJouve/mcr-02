@@ -3,39 +3,65 @@ package main.state;
 import main.Account;
 
 public abstract class State {
-    protected final Account account;
+    private final Account account;
+    private double balance;
+    private double miles;
 
     protected State(Account account) {
         this.account = account;
+        this.balance = 0;
+        this.miles = 0;
+    }
+
+    protected State(State state) {
+        this.account = state.account;
+        this.balance = state.balance;
+        this.miles = state.miles;
     }
 
     protected void setState(State state) {
         account.setState(state);
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public double getMiles() {
+        return miles;
+    }
+
     public boolean depositCash(int amount) {
-        account.depositCash(amount);
+        balance += amount;
+        checkStateChange();
         return true;
     }
 
     public boolean depositMiles(int amount) {
-        account.depositMiles(amount);
+        miles += amount;
+        checkStateChange();
         return true;
     }
 
     public boolean withdrawCash(int amount) {
+        if (amount > balance) return false;
+        balance -= amount;
+        checkStateChange();
         return true;
     }
 
     public boolean withdrawMiles(int amount) {
+        if (amount > miles) return false;
+        miles -= amount;
+        checkStateChange();
         return true;
     }
-
-    public abstract double getMilesCoefficient();
-
-    public abstract boolean checkThreshold(double amount);
 
     public String toString() {
         return this.getClass().getSimpleName().toUpperCase();
     }
+
+    public abstract double getMilesCoefficient();
+
+    public abstract void checkStateChange();
 }

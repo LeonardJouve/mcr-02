@@ -6,8 +6,8 @@ public class Gold extends State {
     private static final double MILES_COEFFICIENT = 0.5;
     private static final int GOLD_MILES_THRESHOLD = 1000;
 
-    public Gold(Account account) {
-        super(account);
+    protected Gold(State state) {
+        super(state);
     }
 
     @Override
@@ -15,8 +15,16 @@ public class Gold extends State {
         return MILES_COEFFICIENT;
     }
 
+    public static boolean checkThreshold(State state) {
+        return state.getMilesCoefficient() >= GOLD_MILES_THRESHOLD;
+    }
+
     @Override
-    public boolean checkThreshold(double amount) {
-        return amount >= GOLD_MILES_THRESHOLD;
+    public void checkStateChange() {
+        if (Platinum.checkThreshold(this)) {
+            setState(new Platinum(this));
+        } else if (!checkThreshold(this)) {
+            setState(new Silver(this));
+        }
     }
 }

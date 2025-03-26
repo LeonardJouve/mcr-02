@@ -4,23 +4,18 @@ import main.state.Silver;
 import main.state.State;
 
 public class Account {
-    private double balance;
-    private double miles;
-
     private State state;
 
     public Account() {
-        balance = 0;
-        miles = 0;
-        state = new Silver(this);
+        this.state = new Silver(this);
     }
 
     public double getBalance() {
-        return balance;
+        return state.getBalance();
     }
 
     public double getMiles() {
-        return miles;
+        return state.getMiles();
     }
 
     public State getState() {
@@ -31,24 +26,20 @@ public class Account {
         this.state = state;
     }
 
-    public void depositCash(int amount) {
-        balance += amount;
+    public boolean depositCash(int amount) {
+        return state.depositCash(amount);
     }
 
-    public void depositMiles(int amount) {
-        miles += amount;
+    public boolean depositMiles(int amount) {
+        return state.depositMiles(amount);
     }
 
-    public void withdrawCash(int amount) throws IllegalArgumentException {
-        if (amount > balance) throw new IllegalArgumentException();
-
-        balance -= amount;
+    public boolean withdrawCash(int amount) {
+        return state.withdrawCash(amount);
     }
 
-    public void withdrawMiles(int amount) throws IllegalArgumentException {
-        if (amount > miles) throw new IllegalArgumentException();
-
-        miles -= amount;
+    public boolean withdrawMiles(int amount) {
+        return state.withdrawMiles(amount);
     }
 
 }

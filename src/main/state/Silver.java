@@ -4,10 +4,13 @@ import main.Account;
 
 public class Silver extends State {
     private static final double MILES_COEFFICIENT = 0.1;
-    private static final int GOLD_MILES_THRESHOLD = 1000;
 
     public Silver(Account account) {
         super(account);
+    }
+
+    protected Silver(State state) {
+        super(state);
     }
 
     @Override
@@ -16,7 +19,9 @@ public class Silver extends State {
     }
 
     @Override
-    public boolean checkThreshold(double amount) {
-        return amount < GOLD_MILES_THRESHOLD;
+    public void checkStateChange() {
+        if (Gold.checkThreshold(this)) {
+            setState(new Gold(this));
+        }
     }
 }

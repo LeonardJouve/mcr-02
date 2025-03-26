@@ -6,8 +6,8 @@ public class Platinum extends State {
     private static final double MILES_COEFFICIENT = 1;
     private static final int PLATINUM_CREDIT_THRESHOLD = 10000;
 
-    public Platinum(Account account) {
-        super(account);
+    protected Platinum(State state) {
+        super(state);
     }
 
     @Override
@@ -15,8 +15,14 @@ public class Platinum extends State {
         return MILES_COEFFICIENT;
     }
 
+    public static boolean checkThreshold(State state) {
+        return state.getBalance() >= PLATINUM_CREDIT_THRESHOLD;
+    }
+
     @Override
-    public boolean checkThreshold(double amount) {
-        return amount >= PLATINUM_CREDIT_THRESHOLD;
+    public void checkStateChange() {
+        if (PermanentPlatinum.checkThreshold(this)) {
+            setState(new PermanentPlatinum(this));
+        }
     }
 }
