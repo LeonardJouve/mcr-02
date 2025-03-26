@@ -2,7 +2,7 @@ package main.state;
 
 public class Gold extends State {
     private static final double MILES_COEFFICIENT = 0.5;
-    private static final int GOLD_MILES_THRESHOLD = 1000;
+    private static final int GOLD_MILES_THRESHOLD = 1_000;
 
     protected Gold(State state) {
         super(state);
@@ -14,7 +14,7 @@ public class Gold extends State {
     }
 
     protected static boolean checkThreshold(State state) {
-        return state.getMilesCoefficient() >= GOLD_MILES_THRESHOLD;
+        return state.getMiles() >= GOLD_MILES_THRESHOLD;
     }
 
     @Override

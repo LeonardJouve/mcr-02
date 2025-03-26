@@ -41,12 +41,17 @@ public class Main {
         flightPanel.setLayout(new GridLayout(1, 5));
         flightPanel.add(new JLabel("main.Flight"));
         JButton bookFlightCash = new JButton("Book (cash)");
-        bookFlightCash.addActionListener(e -> {
-            jane.depositCash(10_000);
-        });
+        bookFlightCash.addActionListener(e -> jane.depositCash(10_000));
         flightPanel.add(bookFlightCash);
-        flightPanel.add(new JButton("Book (miles)"));
-        flightPanel.add(new JButton("Book (miles)"));
+        JButton bookFlightMiles = new JButton("Book (miles)");
+        bookFlightMiles.addActionListener(e -> jane.depositMiles(1_000));
+        flightPanel.add(bookFlightMiles);
+        JButton reset = new JButton("Reset");
+        reset.addActionListener(e -> {
+            jane.withdrawCash(jane.getBalance());
+            jane.withdrawMiles(jane.getMiles());
+        });
+        flightPanel.add(reset);
         frame.add(flightPanel);
 
         JPanel actionsPanel = new JPanel();
