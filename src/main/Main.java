@@ -40,7 +40,11 @@ public class Main {
         JPanel flightPanel = new JPanel();
         flightPanel.setLayout(new GridLayout(1, 5));
         flightPanel.add(new JLabel("main.Flight"));
-        flightPanel.add(new JButton("Book (cash)"));
+        JButton bookFlightCash = new JButton("Book (cash)");
+        bookFlightCash.addActionListener(e -> {
+            jane.depositCash(10_000);
+        });
+        flightPanel.add(bookFlightCash);
         flightPanel.add(new JButton("Book (miles)"));
         flightPanel.add(new JButton("Book (miles)"));
         frame.add(flightPanel);

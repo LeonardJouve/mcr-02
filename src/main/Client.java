@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client implements Subject, Observer {
-    private String lastName;
-    private String firstName;
-    private int id;
+    private final String lastName;
+    private final String firstName;
+    private final int id;
 
     private String lastAction;
-    private Account account;
+    private final Account account;
 
-    private List<Observer> observers = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
 
     private static int nextId = 1;
 
