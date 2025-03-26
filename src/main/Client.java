@@ -5,7 +5,7 @@ import main.observer.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Client implements Subject {
+public class Client implements Subject, Observer {
     private String lastName;
     private String firstName;
     private int id;
@@ -51,13 +51,11 @@ public class Client implements Subject {
 
     @Override
     public void attachObserver(Observer observer) {
-        System.out.println("Client attached");
         observers.add(observer);
     }
 
     @Override
     public void detachObserver(Observer observer) {
-        System.out.println("Client detached");
         observers.remove(observer);
     }
 
@@ -66,5 +64,10 @@ public class Client implements Subject {
         for (Observer observer : observers) {
             observer.update(this);
         }
+    }
+
+    @Override
+    public void update(Subject subject) {
+        notifyObservers();
     }
 }
