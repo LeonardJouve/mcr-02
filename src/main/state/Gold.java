@@ -1,7 +1,5 @@
 package main.state;
 
-import main.Account;
-
 public class Gold extends State {
     private static final double MILES_COEFFICIENT = 0.5;
     private static final int GOLD_MILES_THRESHOLD = 1000;

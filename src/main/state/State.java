@@ -1,26 +1,26 @@
 package main.state;
 
-import main.Account;
+import main.Client;
 
 public abstract class State {
-    private final Account account;
+    private final Client client;
     private double balance;
     private double miles;
 
-    protected State(Account account) {
-        this.account = account;
+    protected State(Client client) {
+        this.client = client;
         this.balance = 0;
         this.miles = 0;
     }
 
     protected State(State state) {
-        this.account = state.account;
+        this.client = state.client;
         this.balance = state.balance;
         this.miles = state.miles;
     }
 
     protected void setState(State state) {
-        account.setState(state);
+        client.setState(state);
     }
 
     public double getBalance() {

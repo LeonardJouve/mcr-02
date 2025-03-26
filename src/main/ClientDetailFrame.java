@@ -66,9 +66,9 @@ public class ClientDetailFrame extends JFrame implements Observer {
         Client client = (Client) subject;
         lastNameValue.setText(client.getLastName());
         firstNameValue.setText(client.getFirstName());
-        creditsValue.setText(String.valueOf(client.getAccount().getBalance()));
-        milesValue.setText(String.valueOf(client.getAccount().getMiles()));
-        statusValue.setText(client.getAccount().getState().toString());
+        creditsValue.setText(String.valueOf(client.getBalance()));
+        milesValue.setText(String.valueOf(client.getMiles()));
+        statusValue.setText(client.getState().toString());
         lastActionValue.setText(client.getLastAction());
     }
 }

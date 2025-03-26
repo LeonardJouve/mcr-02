@@ -1,12 +1,12 @@
 package main.state;
 
-import main.Account;
+import main.Client;
 
 public class Silver extends State {
     private static final double MILES_COEFFICIENT = 0.1;
 
-    public Silver(Account account) {
-        super(account);
+    public Silver(Client client) {
+        super(client);
     }
 
     protected Silver(State state) {

@@ -1,7 +1,5 @@
 package main.state;
 
-import main.Account;
-
 public class Platinum extends State {
     private static final double MILES_COEFFICIENT = 1;
     private static final int PLATINUM_CREDIT_THRESHOLD = 10000;
