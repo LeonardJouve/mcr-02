@@ -14,7 +14,19 @@ public class Client {
         this.lastName = lastName;
         this.firstName = firstName;
         this.id = nextId++;
+
+        this.account = new Account();
     }
+
+    public String getLastName() {return lastName;}
+
+    public String getFirstName() {return firstName;}
+
+    public int getId() {return id;}
+
+    public String getLastAction() {return lastAction;}
+
+    public Account getAccount() {return account;}
 
     public String toString() {
         return lastName + " " + firstName;

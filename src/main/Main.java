@@ -18,12 +18,15 @@ public class Main {
         JPanel clientPanel = new JPanel();
         clientPanel.setLayout(new GridLayout(1, 3));
         clientPanel.add(new JLabel("main.Client"));
+
+        Client jane = new Client("Jane", "Mary");
         JButton detailsButton = new JButton("Details");
         detailsButton.addActionListener(e -> {
-            JFrame detailFrame = new JFrame();
+            JFrame detailFrame = new ClientDetailFrame(jane);
             detailFrame.setSize(WIDTH, HEIGHT);
             detailFrame.setVisible(true);
         });
+
         clientPanel.add(detailsButton);
         frame.add(clientPanel);
 

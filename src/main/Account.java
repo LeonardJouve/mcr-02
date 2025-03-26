@@ -1,5 +1,6 @@
 package main;
 
+import main.state.SilverState;
 import main.state.State;
 
 public class Account {
@@ -7,6 +8,24 @@ public class Account {
     private double miles;
 
     private State state;
+
+    public Account() {
+        balance = 0;
+        miles = 0;
+        state = new SilverState(this);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public double getMiles() {
+        return miles;
+    }
+
+    public State getState() {
+        return state;
+    }
 
     public void setState(State state) {
         this.state = state;

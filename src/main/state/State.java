@@ -1,4 +1,5 @@
 package main.state;
+
 import main.Account;
 
 public abstract class State {
@@ -33,4 +34,8 @@ public abstract class State {
     public abstract double getMilesCoefficient();
 
     public abstract boolean checkThreshold(double amount);
+
+    public String toString() {
+        return this.getClass().getSimpleName().toUpperCase();
+    }
 }
