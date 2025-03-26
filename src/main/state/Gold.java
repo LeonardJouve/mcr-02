@@ -2,11 +2,11 @@ package main.state;
 
 import main.Account;
 
-public class SilverState extends State {
-    private static final double MILES_COEFFICIENT = 0.1;
+public class Gold extends State {
+    private static final double MILES_COEFFICIENT = 0.5;
     private static final int GOLD_MILES_THRESHOLD = 1000;
 
-    public SilverState(Account account) {
+    public Gold(Account account) {
         super(account);
     }
 
@@ -17,6 +17,6 @@ public class SilverState extends State {
 
     @Override
     public boolean checkThreshold(double amount) {
-        return amount < GOLD_MILES_THRESHOLD;
+        return amount >= GOLD_MILES_THRESHOLD;
     }
 }

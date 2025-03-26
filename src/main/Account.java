@@ -1,6 +1,6 @@
 package main;
 
-import main.state.SilverState;
+import main.state.Silver;
 import main.state.State;
 
 public class Account {
@@ -12,7 +12,7 @@ public class Account {
     public Account() {
         balance = 0;
         miles = 0;
-        state = new SilverState(this);
+        state = new Silver(this);
     }
 
     public double getBalance() {
