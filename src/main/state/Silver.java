@@ -24,4 +24,9 @@ public class Silver extends State {
             setState(new Gold(this));
         }
     }
+
+    @Override
+    public String toString() {
+        return "SILVER";
+    }
 }

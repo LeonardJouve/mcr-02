@@ -57,11 +57,9 @@ public abstract class State {
         return true;
     }
 
-    public String toString() {
-        return this.getClass().getSimpleName().toUpperCase();
-    }
-
     public abstract double getMilesCoefficient();
 
     public abstract void checkStateChange();
+
+    public abstract String toString();
 }

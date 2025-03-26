@@ -12,41 +12,35 @@ public class ClientDetailFrame extends JFrame implements Observer {
 
     private Client client;
 
-    JLabel lastNameLabel = new JLabel("Last name:");
-    JTextField lastNameField = new JTextField(20);
-    JLabel firstNameLabel = new JLabel("First name:");
-    JTextField firstNameField = new JTextField(20);
-    JLabel creditsLabel = new JLabel("Credits:");
-    JTextField creditsField = new JTextField(20);
-    JLabel milesLabel = new JLabel("Nb miles:");
-    JTextField milesField = new JTextField(20);
-    JLabel statusLabel = new JLabel("Status:");
-    JTextField statusField = new JTextField(20);
-    JLabel lastActionLabel = new JLabel("Last action:");
-    JTextField lastActionField = new JTextField(20);
+    private JLabel lastNameLabel = new JLabel("Last name:");
+    private JLabel lastNameField = new JLabel();
+    private JLabel firstNameLabel = new JLabel("First name:");
+    private JLabel firstNameField = new JLabel();
+    private JLabel creditsLabel = new JLabel("Credits:");
+    private JLabel creditsField = new JLabel();
+    private JLabel milesLabel = new JLabel("Nb miles:");
+    private JLabel milesField = new JLabel();
+    private JLabel statusLabel = new JLabel("Status:");
+    private JLabel statusField = new JLabel();
+    private JLabel lastActionLabel = new JLabel("Last action:");
+    private JLabel lastActionField = new JLabel();
 
     private void addContent() {
-        lastNameField.setEditable(false);
         this.add(lastNameLabel);
         this.add(lastNameField);
 
-        firstNameField.setEditable(false);
         this.add(firstNameLabel);
         this.add(firstNameField);
 
-        creditsField.setEditable(false);
         this.add(creditsLabel);
         this.add(creditsField);
 
-        milesField.setEditable(false);
         this.add(milesLabel);
         this.add(milesField);
 
-        statusField.setEditable(false);
         this.add(statusLabel);
         this.add(statusField);
 
-        lastActionField.setEditable(false);
         this.add(lastActionLabel);
         this.add(lastActionField);
     }
@@ -55,7 +49,6 @@ public class ClientDetailFrame extends JFrame implements Observer {
         this.client = client;
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Client Details");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLayout(new GridLayout(6, 1));
 

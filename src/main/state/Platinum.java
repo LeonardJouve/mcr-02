@@ -25,4 +25,9 @@ public class Platinum extends State {
             setState(new PermanentPlatinum(this));
         }
     }
+
+    @Override
+    public String toString() {
+        return "PLATINUM";
+    }
 }

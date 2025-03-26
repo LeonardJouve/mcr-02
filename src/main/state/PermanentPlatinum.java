@@ -20,4 +20,9 @@ public class PermanentPlatinum extends State {
     @Override
     public void checkStateChange() {
     }
+
+    @Override
+    public String toString() {
+        return "PERMANENT PLATINUM";
+    }
 }
