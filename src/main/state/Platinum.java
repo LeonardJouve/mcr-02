@@ -11,16 +11,16 @@ public class Platinum extends State {
     }
 
     @Override
-    public double getMilesCoefficient() {
+    protected double getMilesCoefficient() {
         return MILES_COEFFICIENT;
     }
 
-    public static boolean checkThreshold(State state) {
+    protected static boolean checkThreshold(State state) {
         return state.getBalance() >= PLATINUM_CREDIT_THRESHOLD;
     }
 
     @Override
-    public void checkStateChange() {
+    protected void checkStateChange() {
         if (PermanentPlatinum.checkThreshold(this)) {
             setState(new PermanentPlatinum(this));
         }

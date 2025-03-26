@@ -46,6 +46,7 @@ public abstract class State {
     public boolean withdrawCash(int amount) {
         if (amount > balance) return false;
         balance -= amount;
+        miles += getMilesCoefficient() * amount;
         checkStateChange();
         return true;
     }
@@ -57,9 +58,9 @@ public abstract class State {
         return true;
     }
 
-    public abstract double getMilesCoefficient();
+    protected abstract double getMilesCoefficient();
 
-    public abstract void checkStateChange();
+    protected abstract void checkStateChange();
 
     public abstract String toString();
 }

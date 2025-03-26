@@ -14,12 +14,12 @@ public class Silver extends State {
     }
 
     @Override
-    public double getMilesCoefficient() {
+    protected double getMilesCoefficient() {
         return MILES_COEFFICIENT;
     }
 
     @Override
-    public void checkStateChange() {
+    protected void checkStateChange() {
         if (Gold.checkThreshold(this)) {
             setState(new Gold(this));
         }
