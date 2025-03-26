@@ -31,19 +31,19 @@ public abstract class State {
         return miles;
     }
 
-    public boolean depositCash(int amount) {
+    public boolean depositCash(double amount) {
         balance += amount;
         checkStateChange();
         return true;
     }
 
-    public boolean depositMiles(int amount) {
+    public boolean depositMiles(double amount) {
         miles += amount;
         checkStateChange();
         return true;
     }
 
-    public boolean withdrawCash(int amount) {
+    public boolean withdrawCash(double amount) {
         if (amount > balance) return false;
         balance -= amount;
         miles += getMilesCoefficient() * amount;
@@ -51,7 +51,7 @@ public abstract class State {
         return true;
     }
 
-    public boolean withdrawMiles(int amount) {
+    public boolean withdrawMiles(double amount) {
         if (amount > miles) return false;
         miles -= amount;
         checkStateChange();

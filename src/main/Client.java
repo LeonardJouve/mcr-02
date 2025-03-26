@@ -61,7 +61,7 @@ public class Client implements Subject {
         notifyObservers();
     }
 
-    public boolean depositCash(int amount) {
+    public boolean depositCash(double amount) {
         boolean ok = state.depositCash(amount);
         if (ok) {
             notifyObservers();
@@ -70,7 +70,7 @@ public class Client implements Subject {
         return ok;
     }
 
-    public boolean depositMiles(int amount) {
+    public boolean depositMiles(double amount) {
         boolean ok = state.depositMiles(amount);
         if (ok) {
             notifyObservers();
@@ -79,7 +79,7 @@ public class Client implements Subject {
         return ok;
     }
 
-    public boolean withdrawCash(int amount) {
+    public boolean withdrawCash(double amount) {
         boolean ok = state.withdrawCash(amount);
         if (ok) {
             notifyObservers();
@@ -88,7 +88,7 @@ public class Client implements Subject {
         return ok;
     }
 
-    public boolean withdrawMiles(int amount) {
+    public boolean withdrawMiles(double amount) {
         boolean ok = state.withdrawMiles(amount);
         if (ok) {
             notifyObservers();
