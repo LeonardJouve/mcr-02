@@ -3,13 +3,12 @@ package main;
 import javax.swing.*;
 
 import main.observer.Observer;
-import main.observer.Subject;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ClientDetailFrame extends JFrame implements Observer {
+public class ClientDetailFrame extends JFrame implements Observer<Client> {
     private static final int WIDTH = 300;
     private static final int HEIGHT = 200;
 
@@ -62,8 +61,7 @@ public class ClientDetailFrame extends JFrame implements Observer {
     }
 
     @Override
-    public void update(Subject subject) {
-        Client client = (Client) subject;
+    public void update(Client client) {
         lastNameValue.setText(client.getLastName());
         firstNameValue.setText(client.getFirstName());
         creditsValue.setText(String.valueOf(client.getBalance()));

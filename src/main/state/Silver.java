@@ -2,6 +2,12 @@ package main.state;
 
 import main.Client;
 
+import java.awt.*;
+
+/**
+ * Represents the Silver state of a client as part of the State design pattern.
+ * Can go up to Gold with enough miles.
+ */
 public class Silver extends State {
     private static final double MILES_COEFFICIENT = 0.1;
 
@@ -14,7 +20,7 @@ public class Silver extends State {
     }
 
     @Override
-    protected double getMilesCoefficient() {
+    public double getMilesCoefficient() {
         return MILES_COEFFICIENT;
     }
 
@@ -28,5 +34,10 @@ public class Silver extends State {
     @Override
     public String toString() {
         return "SILVER";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0xC0C0C0);
     }
 }
