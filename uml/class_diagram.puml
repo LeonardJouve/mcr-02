@@ -1,0 +1,75 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class State {
+    - balance: double
+    - miles : double
+    --
+    # State(client: Client)
+    # State(state: State)
+    # setState(state: State): void
+    + getBalance(): double
+    + getMiles(): double
+    + depositCash(amount: double): void
+    + depositMiles(amount: double): void
+    + withdrawCash(amount: double): boolean
+    + withdrawMiles(amount: double): boolean
+    {abstract} + getMilesCoefficient(): double
+    {abstract} # checkStateChange() : void
+    {abstract} + toString() : String
+    {abstract} + getColor() : Color
+}
+
+class Silver {
+    - {static} MILES_COEFFICIENT = 0.1 : double
+    --
+    + Silver(client: Client)
+    # Silver(state: State)
+    + getMilesCoefficient(): double
+    # checkStateChange(): void
+    + toString(): String
+    + getColor(): Color
+}
+
+class Gold {
+    - {static} MILES_COEFFICIENT = 0.5 : double
+    - {static} GOLD_MILES_THRESHOLD = 1_000 : double
+    --
+    # Gold(state: State)
+    + getMilesCoefficient(): double
+    {static} # checkThreshold(): boolean
+    # checkStateChange(): void
+    + toString(): String
+    + getColor(): Color
+}
+
+class Platinum {
+    - {static} MILES_COEFFICIENT = 0.5 : double
+    - {static} Platinum_MILES_THRESHOLD = 1_000 : double
+    --
+    # Platinum(state: State)
+    + getMilesCoefficient(): double
+    {static} # checkThreshold(): boolean
+    # checkStateChange(): void
+    + toString(): String
+    + getColor(): Color
+}
+
+class PermanentPlatinum {
+    - {static} MILES_COEFFICIENT = 0.5 : double
+    - {static} PERMANENT_PLATINUM_CREDIT_THRESHOLD = 1_000 : double
+    --
+    # PermanentPlatinum(state: State)
+    + getMilesCoefficient(): double
+    {static} # checkThreshold(): boolean
+    # checkStateChange(): void
+    + toString(): String
+    + getColor(): Color
+}
+
+State <|-- Silver
+State <|-- Gold
+State <|-- Platinum
+State <|-- PermanentPlatinum
+
+@enduml
