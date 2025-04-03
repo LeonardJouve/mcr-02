@@ -33,6 +33,11 @@ public class Client implements Subject<Client> {
         this.state = new Silver(this);
     }
 
+    /**
+     * Books a flight using cash.
+     * @param flight to book
+     * @param ticketType (economy, business, first)
+     */
     public void bookFlightCash(Flight flight, TicketType ticketType) {
         double cost = flight.price() * ticketType.getCashCoefficient();
         if (!state.withdrawCash(cost)) {
@@ -46,6 +51,11 @@ public class Client implements Subject<Client> {
         notifyObservers();
     }
 
+    /**
+     * Books a flight using miles.
+     * @param flight to book
+     * @param ticketType (economy, business, first)
+     */
     public void bookFlightMiles(Flight flight, TicketType ticketType) {
         double cost = flight.distance() * ticketType.getMilesCoefficient();
         if (!state.withdrawMiles(cost)) {
@@ -60,8 +70,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the last name of the client.
-     *
-     * @return
      */
     public String getLastName() {
         return lastName;
@@ -69,8 +77,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the first name of the client.
-     *
-     * @return
      */
     public String getFirstName() {
         return firstName;
@@ -78,8 +84,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the id of the client.
-     *
-     * @return
      */
     public int getId() {
         return id;
@@ -87,8 +91,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the last action of the client.
-     *
-     * @return
      */
     public String getLastAction() {
         return lastAction;
@@ -96,8 +98,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the balance of the client.
-     *
-     * @return
      */
     public double getBalance() {
         return state.getBalance();
@@ -105,8 +105,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the miles of the client.
-     *
-     * @return
      */
     public double getMiles() {
         return state.getMiles();
@@ -114,8 +112,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Getter for the state of the client.
-     *
-     * @return
      */
     public State getState() {
         return state;
@@ -123,8 +119,6 @@ public class Client implements Subject<Client> {
 
     /**
      * Setter for the state of the client.
-     *
-     * @param state
      */
     public void setState(State state) {
         this.state = state;

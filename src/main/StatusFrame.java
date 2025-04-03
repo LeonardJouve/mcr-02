@@ -11,16 +11,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Displays the current status of all clients in the system.
+ * Implements the Observer pattern to update the status of clients.
+ */
 public class StatusFrame extends JFrame implements Observer<Client> {
     private static final int WIDTH = 300;
     private static final int HEIGHT = 200;
 
+    /**
+     * Map of client IDs to their corresponding JLabel.
+     */
     private final Map<Integer, JLabel> labels;
 
+    /**
+     * Formats the client information for display.
+     *
+     * @param client The client to format.
+     * @return A string representation of the client and their state.
+     */
     private String formatClient(Client client) {
         return client + " " + client.getState();
     }
 
+    /**
+     * Adds all labels to the frame.
+     *
+     * @param clients The list of clients to display.
+     */
     private void addContent(List<Client> clients) {
         List<Client> sortedClients = clients.stream()
                 .sorted(Comparator.comparing(Client::toString))

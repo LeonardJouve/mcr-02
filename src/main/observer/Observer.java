@@ -8,7 +8,7 @@ package main.observer;
 public interface Observer<T extends Subject> {
 
     /**
-     * Update method to be called when the subject changes.
+     * Update the observer with the new state of the subject.
      *
      * @param subject the subject that has changed
      */

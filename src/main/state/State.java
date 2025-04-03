@@ -27,7 +27,7 @@ public abstract class State {
     /**
      * Change the state of the client.
      *
-     * @param state
+     * @param state the new state to switch to
      */
     protected void setState(State state) {
         client.setState(state);
@@ -35,8 +35,6 @@ public abstract class State {
 
     /**
      * Getter for balance.
-     *
-     * @return
      */
     public double getBalance() {
         return balance;
@@ -44,8 +42,6 @@ public abstract class State {
 
     /**
      * Getter for the amount of miles.
-     *
-     * @return
      */
     public double getMiles() {
         return miles;
@@ -101,8 +97,6 @@ public abstract class State {
 
     /**
      * Getter for miles coefficient of the state this method is called on.
-     *
-     * @return
      */
     public abstract double getMilesCoefficient();
 

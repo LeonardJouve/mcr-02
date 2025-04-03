@@ -1,5 +1,8 @@
 package main;
 
+/**
+ * Enum defining the different tickets available.
+ */
 public enum TicketType {
     ECONOMY("Economy", 1, 1),
     BUSINESS("Business", 2, 5),
@@ -9,14 +12,23 @@ public enum TicketType {
     private final int cashCoefficient;
     private final int milesCoefficient;
 
+    /**
+     * Get the name of the ticket type.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get the cash coefficient of the ticket type.
+     */
     public int getCashCoefficient() {
         return cashCoefficient;
     }
 
+    /**
+     * Get the miles coefficient of the ticket type.
+     */
     public int getMilesCoefficient() {
         return milesCoefficient;
     }
