@@ -33,7 +33,7 @@ class Silver {
 
 class Gold {
     - {static} MILES_COEFFICIENT = 0.5 : double
-    - {static} GOLD_MILES_THRESHOLD = 1_000 : double
+    - {static} GOLD_MILES_THRESHOLD = 1_000 : int
     --
     # Gold(state: State)
     + getMilesCoefficient(): double
@@ -44,8 +44,8 @@ class Gold {
 }
 
 class Platinum {
-    - {static} MILES_COEFFICIENT = 0.5 : double
-    - {static} Platinum_MILES_THRESHOLD = 1_000 : double
+    - {static} MILES_COEFFICIENT = 1 : double
+    - {static} Platinum_MILES_THRESHOLD = 10_000 : int
     --
     # Platinum(state: State)
     + getMilesCoefficient(): double
@@ -56,8 +56,8 @@ class Platinum {
 }
 
 class PermanentPlatinum {
-    - {static} MILES_COEFFICIENT = 0.5 : double
-    - {static} PERMANENT_PLATINUM_CREDIT_THRESHOLD = 1_000 : double
+    - {static} MILES_COEFFICIENT = 1 : double
+    - {static} PERMANENT_PLATINUM_CREDIT_THRESHOLD = 100_000 : int
     --
     # PermanentPlatinum(state: State)
     + getMilesCoefficient(): double
