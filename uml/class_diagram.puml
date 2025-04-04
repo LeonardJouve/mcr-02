@@ -143,11 +143,29 @@ enum TicketType {
 class JFrame {}
 
 class ClientDetailFrame {
-
+   {static} - WIDTH = 300 : int
+   {static} - HEIGHT = 200 : int
+   - lastNameLabel : JLabel
+   - firstNameLabel : JLabel
+   - creditsLabel : JLabel
+   - milesLabel : JLabel
+   - statusLabel : JLabel
+   - lastActionLabel : JLabel
+   --
+   + ClientDetailFrame(client: Client)
+   - addContent(): void
+   + update(client: Client): void
 }
 
 class StatusFrame {
-
+   {static} - WIDTH = 300 : int
+   {static} - HEIGHT = 200 : int
+   - labels : Map<Integer, JLabel>
+   --
+   + StatusFrame(clients: List<Client>)
+   - formatClient(client: Client): String
+   - addContent(clients: List<Client>): void
+   + update(client: Client): void
 }
 
 JFrame <|-up- ClientDetailFrame
