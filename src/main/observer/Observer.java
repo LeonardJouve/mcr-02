@@ -5,7 +5,7 @@ package main.observer;
  *
  * @param <T> the type of subject being observed
  */
-public interface Observer<T extends Subject> {
+public interface Observer<T extends Subject<?>> {
 
     /**
      * Update the observer with the new state of the subject.
