@@ -72,4 +72,85 @@ State <|-- Gold
 State <|-- Platinum
 State <|-- PermanentPlatinum
 
+interface Subject<T extends Subject> {
+    {abstract}+ attachObserver(observer: Observer<T>): void
+    {abstract}+ detachObserver(observer: Observer<T>): void
+    {abstract}+ notifyObservers(): void
+}
+
+interface Observer<T extends Subject> {
+    {abstract}+ update(subject: T): void
+}
+
+class Client {
+    - lastName: String
+    - firstName: String
+    - id : int
+    - lastAction : String
+    {static} - nextId : int
+    - observers: List<Observer<Client>>
+    --
+    + Client(lastName: String, firstName: String)
+    + bookFlightCash(flight: Flight, ticketType: TicketType): void
+    + bookFlightMiles(flight: Flight, ticketType: TicketType): void
+    + getLastName(): String
+    + getFirstName(): String
+    + getId(): int
+    + getLastAction(): String
+    + getBalance(): double
+    + getMiles(): double
+    + getState(): State
+    + setState(state: State): void
+    + depositCash(amount: double): void
+    + depositMiles(amount: double): void
+    + withdrawCash(amount: double): boolean
+    + withdrawMiles(amount: double): boolean
+    + toString(): String
+    + attachObserver(observer: Observer<Client>): void
+    + detachObserver(observer: Observer<Client>): void
+    + notifyObservers(): void
+}
+
+Subject <|-- Client
+
+class Flight {
+    - name : String
+    - distance : double
+    - price : double
+    --
+    + Flight(name: String, distance: double, price: double)
+    + name(): String
+    + distance(): double
+    + price(): double
+    + toString(): String
+}
+
+enum TicketType {
+    ECONOMY("Economy", 1, 1)
+    BUSINESS("Business", 2, 5)
+    FIRST("First", 5, 30)
+    --
+    - name: String
+    - cashCoefficient: int
+    - milesCoefficient: int
+    --
+    TicketType(name: String, cashCoefficient: int, milesCoefficient: int)
+    + getName(): String
+    + getCashCoefficient(): int
+    + getMilesCoefficient(): int
+}
+
+class JFrame {}
+
+class ClientDetailFrame {
+
+}
+
+class StatusFrame {
+
+}
+
+JFrame <|-- ClientDetailFrame
+JFrame <|-- StatusFrame
+
 @enduml
