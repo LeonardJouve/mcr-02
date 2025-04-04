@@ -111,7 +111,7 @@ class Client {
     + notifyObservers(): void
 }
 
-Subject <|-- Client
+Subject <|.. Client
 
 class Flight {
     - name : String
@@ -150,7 +150,10 @@ class StatusFrame {
 
 }
 
-JFrame <|-- ClientDetailFrame
-JFrame <|-- StatusFrame
+JFrame <|-up- ClientDetailFrame
+JFrame <|-up- StatusFrame
+
+Observer <|.. ClientDetailFrame
+Observer <|.. StatusFrame
 
 @enduml
