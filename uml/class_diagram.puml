@@ -70,15 +70,15 @@ class PermanentPlatinum {
 State <|-- Silver
 State <|-- Gold
 State <|-- Platinum
-State <|-- PermanentPlatinum
+State <|-left- PermanentPlatinum
 
-interface Subject<T extends Subject> {
+interface Subject<T extends Subject<?>> {
     {abstract}+ attachObserver(observer: Observer<T>): void
     {abstract}+ detachObserver(observer: Observer<T>): void
     {abstract}+ notifyObservers(): void
 }
 
-interface Observer<T extends Subject> {
+interface Observer<T extends Subject<?>> {
     {abstract}+ update(subject: T): void
 }
 
@@ -111,8 +111,6 @@ class Client {
     + notifyObservers(): void
 }
 
-Subject <|.. Client
-
 class Flight {
     - name : String
     - distance : double
@@ -142,6 +140,12 @@ enum TicketType {
 
 class JFrame {}
 
+class Main {
+    {static} - WIDTH = 500 : int
+    {static} - HEIGHT = 500 : int
+    --
+}
+
 class ClientDetailFrame {
    {static} - WIDTH = 300 : int
    {static} - HEIGHT = 200 : int
@@ -168,10 +172,23 @@ class StatusFrame {
    + update(client: Client): void
 }
 
+Subject <|.down. Client
+
+Main -left- Client
+Main -down- Flight
+Main -right- ClientDetailFrame
+Main -right- StatusFrame
+
 JFrame <|-up- ClientDetailFrame
 JFrame <|-up- StatusFrame
 
 Observer <|.. ClientDetailFrame
 Observer <|.. StatusFrame
+
+Observer "*" <-left- "*" Subject : is observed by <
+
+State "1" -right- "1" Client
+
+
 
 @enduml
