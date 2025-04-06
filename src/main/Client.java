@@ -12,7 +12,7 @@ import java.util.List;
  * Implements the Subject interface for the Observer pattern.
  * Is observed by ClientDetailsFrame.
  */
-public class Client implements Subject<Client> {
+public class Client extends Subject<Client> {
     private final String lastName;
     private final String firstName;
     private final int id;
@@ -20,8 +20,6 @@ public class Client implements Subject<Client> {
     private State state;
 
     private String lastAction;
-
-    private final List<Observer<Client>> observers = new ArrayList<>();
 
     private static int nextId = 1;
 
@@ -184,22 +182,5 @@ public class Client implements Subject<Client> {
      */
     public String toString() {
         return lastName + " " + firstName;
-    }
-
-    @Override
-    public void attachObserver(Observer<Client> observer) {
-        observers.add(observer);
-    }
-
-    @Override
-    public void detachObserver(Observer<Client> observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer<Client> observer : observers) {
-            observer.update(this);
-        }
     }
 }
