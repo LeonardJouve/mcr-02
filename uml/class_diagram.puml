@@ -88,7 +88,6 @@ class Client {
     - id : int
     - lastAction : String
     {static} - nextId : int
-    - observers: List<Observer<Client>>
     --
     + Client(lastName: String, firstName: String)
     + bookFlightCash(flight: Flight, ticketType: TicketType): void
@@ -174,10 +173,10 @@ class StatusFrame {
 
 Subject <|.down. Client
 
-Main -left- Client
-Main -down- Flight
-Main -right- ClientDetailFrame
-Main -right- StatusFrame
+Main "1" -left- "*" Client : contains >
+Main "1" -down- "*" Flight : contains >
+Main *-right- ClientDetailFrame
+Main *-right- StatusFrame
 
 JFrame <|-up- ClientDetailFrame
 JFrame <|-up- StatusFrame
