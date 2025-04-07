@@ -4,9 +4,6 @@ import main.observer.*;
 import main.state.Silver;
 import main.state.State;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Represents a client in the system.
  * Implements the Subject interface for the Observer pattern.
