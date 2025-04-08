@@ -17,18 +17,20 @@ public class MainFrame extends JFrame {
         clientPanel.add(new JLabel("Client"));
 
         JComboBox<Client> clientComboBox = new JComboBox<>(clients);
+
+        // Set initial selectedClient value and update on select
         selectedClient = (Client) clientComboBox.getSelectedItem();
         clientComboBox.addActionListener(e -> {
             selectedClient = (Client) clientComboBox.getSelectedItem();
         });
+
         clientPanel.add(clientComboBox);
 
         JButton detailsButton = new JButton("Details");
         detailsButton.addActionListener(e -> {
-            Client client = (Client) clientComboBox.getSelectedItem();
-            if (client == null) return;
+            if (selectedClient == null) return;
 
-            new ClientDetailFrame(client);
+            new ClientDetailFrame(selectedClient);
         });
         clientPanel.add(detailsButton);
 
@@ -70,6 +72,8 @@ public class MainFrame extends JFrame {
         flightPanel.add(flightComboBox);
 
         JComboBox<TicketType> ticketTypeComboBox = new JComboBox<>(TicketType.values());
+
+        // Render ticket option as required
         ticketTypeComboBox.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean hasFocus) {
@@ -86,6 +90,7 @@ public class MainFrame extends JFrame {
         flightComboBox.addActionListener(e -> {
             ticketTypeComboBox.repaint();
         });
+
         flightPanel.add(ticketTypeComboBox);
 
         JButton bookFlightCash = new JButton("Book (cash)");
