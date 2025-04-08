@@ -72,7 +72,7 @@ State <|-- Gold
 State <|-- Platinum
 State <|-left- PermanentPlatinum
 
-interface Subject<T extends Subject<?>> {
+abstract class Subject<T extends Subject<?>> {
     {abstract}+ attachObserver(observer: Observer<T>): void
     {abstract}+ detachObserver(observer: Observer<T>): void
     {abstract}+ notifyObservers(): void
