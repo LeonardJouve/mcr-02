@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Main window frame.
+ */
 public class MainFrame extends JFrame {
     private static final int WIDTH = 500;
     private static final int HEIGHT = 500;
@@ -11,6 +14,9 @@ public class MainFrame extends JFrame {
     private final Flight[] flights;
     private Client selectedClient = null;
 
+    /**
+     * Create client panel row.
+     */
     private void createClientPanel() {
         JPanel clientPanel = new JPanel();
         clientPanel.setLayout(new GridLayout(1, 3));
@@ -37,6 +43,9 @@ public class MainFrame extends JFrame {
         this.add(clientPanel);
     }
 
+    /**
+     * Create credits panel row.
+     */
     private void createCreditsPanel() {
         JPanel creditsPanel = new JPanel();
         creditsPanel.setLayout(new GridLayout(1, 3));
@@ -63,6 +72,9 @@ public class MainFrame extends JFrame {
         this.add(creditsPanel);
     }
 
+    /**
+     * Create flight panel row.
+     */
     private void createFlightPanel() {
         JPanel flightPanel = new JPanel();
         flightPanel.setLayout(new GridLayout(1, 5));
@@ -118,6 +130,9 @@ public class MainFrame extends JFrame {
         this.add(flightPanel);
     }
 
+    /**
+     * Create action panel row.
+     */
     private void createActionPanel() {
         JPanel actionsPanel = new JPanel();
         actionsPanel.setLayout(new GridLayout(1, 2));
