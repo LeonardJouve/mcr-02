@@ -139,10 +139,18 @@ enum TicketType {
 
 class JFrame {}
 
-class Main {
+class Main {}
+
+class MainFrame {
     {static} - WIDTH = 500 : int
     {static} - HEIGHT = 500 : int
+    - selectedClient : Client;
     --
+    + MainFrame(clients: Client[], flights: Flight[])
+    - createClientPanel(): void
+    - createCreditsPanel(): void
+    - createFlightPanel(): void
+    - createActionPanel(): void
 }
 
 class ClientDetailFrame {
@@ -173,13 +181,18 @@ class StatusFrame {
 
 Subject <|.down. Client
 
-Main "1" -left- "*" Client : contains >
-Main "1" -down- "*" Flight : contains >
-Main *-right- ClientDetailFrame
-Main *-right- StatusFrame
+Main "1" -left-> "*" Client : contains >
+Main "1" -down-> "*" Flight : contains >
+Main *-right- MainFrame
+
+MainFrame "1" -left-> "*" Client : contains >
+MainFrame "1" -down-> "*" Flight : contains >
+MainFrame *-right- ClientDetailFrame
+MainFrame *-right- StatusFrame
 
 JFrame <|-up- ClientDetailFrame
 JFrame <|-up- StatusFrame
+JFrame <|-up- MainFrame
 
 Observer <|.. ClientDetailFrame
 Observer <|.. StatusFrame
